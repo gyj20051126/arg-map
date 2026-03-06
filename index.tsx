@@ -6,7 +6,7 @@ import Papa from 'papaparse';
 // Imports from split files
 import { Sample } from './types';
 import { getCorrectedCoordinates } from './utils';
-import Navbar from './components/Navbar';
+import Navbar from './Navbar';
 import AIChat from './components/AIChat'; // 假设你保留了这个组件
 import LandingPage from './views/LandingPage';
 import MapView from './views/MapView';
