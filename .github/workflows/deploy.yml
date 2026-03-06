@@ -3,15 +3,15 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
-  workflow_dispatch: # 允许手动触发
+  workflow_dispatch:
 
-# 设置权限以允许部署到 GitHub Pages
+# 设置 GitHub Actions 的权限，允许它发布页面
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# 限制只能有一个并发部署
+# 确保同一时间只有一个部署任务
 concurrency:
   group: "pages"
   cancel-in-progress: true
@@ -27,7 +27,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          # 注意：这里去掉了 cache: 'npm'，避免找不到 lock 文件报错
 
       - name: Install dependencies
         run: npm install
@@ -38,7 +38,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist # Vite 默认打包后的输出目录
+          path: dist
 
   deploy:
     needs: build
