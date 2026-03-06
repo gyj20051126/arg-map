@@ -7,11 +7,12 @@ import Papa from 'papaparse';
 import { Sample } from './types';
 import { getCorrectedCoordinates } from './utils';
 import Navbar from './Navbar';
-import AIChat from './components/AIChat'; // 假设你保留了这个组件
-import LandingPage from './views/LandingPage';
-import MapView from './views/MapView';
-import PCoAView from './views/PCoAView'; // 确保你有这个文件，没有的话可以暂时注释
-import TrendsView from './views/TrendsView'; // 确保你有这个文件，没有的话可以暂时注释
+import AIChat from './AIChat';
+import LandingPage from './LandingPage';
+import MapView from './MapView';
+import HabitatFilter from './HabitatFilter';
+import PCoAView from './PCoAView';
+import TrendsView from './TrendsView';
 
 const Dashboard = ({ activeView, onViewChange, data }: { activeView: string, onViewChange: (view: any) => void, data: Sample[] }) => {
   return (
